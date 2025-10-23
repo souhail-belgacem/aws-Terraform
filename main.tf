@@ -3,15 +3,16 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name = var.vpc_name
-  }  
+  }
 }
-
+  
 resource "aws_subnet" "main" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "var.subnet_availability_zone"
+  cidr_block = var.subnet_cidr_block
+  vpc_id            = aws_vpc.main.id 
+  availability_zone = var.subnet_availability_zone
 
   tags = {
     Name = var.subnet_name
   }  
 }
+
