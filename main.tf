@@ -16,3 +16,13 @@ resource "aws_subnet" "main" {
   }  
 }
 
+resource "aws_subnet" "main1" {
+  cidr_block = var.subnet1_cidr_block
+  vpc_id            = aws_vpc.main.id 
+  availability_zone = var.subnet_availability_zone
+
+  tags = {
+    Name = var.subnet1_name
+  }  
+}
+
